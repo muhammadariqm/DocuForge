@@ -1,0 +1,10 @@
+# Copy to .docuforgeignore in the root of the project DocuForge scans.
+.env
+.env.*
+*.pem
+*.key
+secrets/
+credentials/
+node_modules/
+vendor/
+.git/

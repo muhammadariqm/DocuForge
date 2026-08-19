@@ -1,0 +1,25 @@
+{
+  "name": "docuforge-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "DocuForge — Universal Code Documentation Platform",
+  "workspaces": [
+    "packages/*",
+    "plugins/*"
+  ],
+  "scripts": {
+    "build": "tsc -b packages/core packages/generator plugins/laravel packages/cli",
+    "clean": "tsc -b --clean packages/core packages/generator plugins/laravel packages/cli",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest",
+    "docuforge": "node packages/cli/dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

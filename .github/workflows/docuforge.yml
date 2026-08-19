@@ -1,0 +1,26 @@
+name: DocuForge
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install DocuForge
+        run: |
+          npm install
+          npm run build
+
+      # Fails the build if source drifted away from docs/ROUTES.md
+      # (blueprint section 26 — Documentation Drift Detection).
+      - name: Validate documentation is in sync with source
+        run: node packages/cli/dist/index.js validate .

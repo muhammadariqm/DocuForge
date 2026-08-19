@@ -1,0 +1,24 @@
+# Copy to docuforge.config.yaml and adjust for your project.
+project:
+  name: My Project
+
+scan:
+  include:
+    - app/
+    - routes/
+    - database/
+  exclude:
+    - vendor/
+    - node_modules/
+    - storage/
+
+output:
+  format:
+    - markdown
+    # - html   # planned, milestone M7
+
+ai:
+  enabled: false   # AI is optional per DocuForge's design principles
+
+diagram:
+  enabled: true
